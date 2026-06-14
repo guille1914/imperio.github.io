@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Nuevo Imperio - Bastión de Soledad</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;600;700;900&family=Georgia:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* BASE & THEME RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0b0b0c; /* Más oscuro, como piedra de mausoleo */
+            color: #d5d5d8;
+            font-family: 'Georgia', serif;
+            line-height: 1.8;
+            overflow-x: hidden;
+            letter-spacing: 0.5px;
+        }
+
+        h1, h2, h3, h4, .btn-imperial {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 3px; /* Mayor espaciado, más ceremonial */
+            text-transform: uppercase;
+        }
+
+        .decorative-title {
+            font-family: 'Cinzel Decorative', serif;
+        }
+
+        /* PALETA IMPERIAL REFINADA */
+        :root {
+            --imperial-crimson: #5c0000; /* Un rojo más oscuro, denso y regio */
+            --imperial-gold: #c5a059;    /* Oro viejo/bronce, menos chillón, más heráldico */
+            --stone-dark: #0f0f11;
+            --stone-light: #161619;
+            --gold-dim: rgba(197, 160, 89, 0.3);
+        }
+
+        /* COMPONENTES REUTILIZABLES */
+        .container {
+            max-width: 1100px; /* Estrechado para mejorar la lectura solemne */
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        /* BOTÓN REFORMADO: SELLO IMPERIAL */
+        .btn-imperial {
+            display: inline-block;
+            background-color: var(--imperial-crimson);
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            padding: 18px 45px;
+            border: 4px double var(--imperial-gold); /* Doble borde clásico */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn-imperial:hover {
+            background-color: #7a0000;
+            color: #fff;
+            border-color: #e5c283;
+            box-shadow: 0 0 25px rgba(197, 160, 89, 0.5);
+            transform: translateY(-1px);
+        }
+
+        .section-title {
+            color: var(--imperial-gold);
+            font-size: 2.4rem;
+            text-align: center;
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+        }
+
+        .section-subtitle {
+            color: #9a9a9a;
+            text-align: center;
+            font-size: 0.95rem;
+            max-width: 650px;
+            margin: 0 auto 50px auto;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        /* MARCOS Y SEPARADORES FILIGRANA */
+        hr.divider {
+            border: 0;
+            height: 3px;
+            background: linear-gradient(to right, transparent, var(--imperial-gold), transparent);
+            margin: 0;
+            position: relative;
+        }
+
+        /* CAPITULARES (MANUSCRITO ANTIGUO) */
+        .drop-cap::first-letter {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            float: left;
+            margin-right: 10px;
+            line-height: 1;
+            color: var(--imperial-gold);
+            font-weight: 700;
+            border: 1px solid var(--gold-dim);
+            padding: 5px 10px;
+            background: var(--stone-dark);
+        }
+
+        /* HERO SECTION (EL GRAN DECRETO) */
+        .hero {
+            position: relative;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(11, 11, 12, 0.85), rgba(11, 11, 12, 0.98)), 
+                        url('https://i.pinimg.com/736x/17/5c/e3/175ce36adc4897f55bc8df032ff027fb.jpg') no-repeat center center/cover;
+            padding: 60px 20px;
+            border-bottom: 4px double var(--imperial-gold);
+        }
+
+        .hero-content {
+            max-width: 850px;
+            background: rgba(15, 15, 17, 0.9);
+            padding: 60px 40px;
+            border: 1px solid var(--gold-dim);
+            outline: 4px double var(--imperial-gold); /* Doble marco en el pergamino central */
+            outline-offset: -15px;
+            box-shadow: 0 0 50px rgba(0,0,0,0.9);
+        }
+
+        .hero h1 {
+            color: #ffffff;
+            font-size: 2.8rem;
+            line-height: 1.3;
+            margin-bottom: 30px;
+            font-weight: 900;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.9);
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            margin-bottom: 40px;
+            color: #b5b5b8;
+            font-style: italic;
+        }
+
+        /* SECTION 2: LA DOCTRINA */
+        .doctrina {
+            background-color: var(--stone-dark);
+        }
+
+        .doctrina-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .doctrina-text h2 {
+            color: var(--imperial-gold);
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            font-weight: 400;
+            letter-spacing: 2px;
+        }
+
+        .doctrina-text p {
+            font-size: 1.1rem;
+            color: #b5b5b8;
+            text-align: justify;
+        }
+
+        .doctrina-img {
+            width: 100%;
+            height: 480px;
+            /* Se aplica filtro solemne de estatua antigua */
+            background: linear-gradient(rgba(11,11,12,0.3), rgba(11,11,12,0.7)), 
+                        url('https://i.pinimg.com/1200x/c4/d9/e1/c4d9e198d7449532ec5799bfa282536d.jpg') no-repeat center center/cover;
+            border: 1px solid var(--imperial-gold);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.8);
+            filter: grayscale(40%) sepia(20%);
+        }
+
+        /* SECTION 3: LOS PILARES */
+        .pilares {
+            background-color: var(--stone-light);
+        }
+
+        .pilares-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+        }
+
+        .pilar-card {
+            background-color: var(--stone-dark);
+            border: 1px solid #2a2a30;
+            padding: 40px 25px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        /* Esquinas doradas rituales */
+        .pilar-card::before {
+            content: '';
+            position: absolute;
+            top: 8px; left: 8px; right: 8px; bottom: 8px;
+            border: 1px solid var(--gold-dim);
+            pointer-events: none;
+        }
+
+        .pilar-card:hover {
+            border-color: var(--imperial-gold);
+            background-color: #121215;
+        }
+
+        .pilar-card h3 {
+            color: var(--imperial-gold);
+            font-size: 1.25rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .pilar-card p {
+            color: #9a9a9a;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* SECTION 4: EDICTOS (MANUSCRITOS) */
+        .edictos {
+            background-color: var(--stone-dark);
+        }
+
+        .edictos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .edicto-card {
+            background-color: var(--stone-light);
+            border: 1px solid #2a2a30;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.7);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .edicto-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--gold-dim);
+            filter: grayscale(20%) sepia(30%) brightness(80%); /* Mitiga el brillo moderno */
+        }
+
+        .edicto-content {
+            padding: 35px 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .edicto-content h3 {
+            color: #ffffff;
+            font-size: 1.15rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--imperial-crimson);
+            padding-bottom: 8px;
+        }
+
+        .edicto-content p {
+            color: #aaaaaa;
+            font-size: 0.95rem;
+            text-align: justify;
+            line-height: 1.7;
+        }
+
+        /* FOOTER IMPERIAL */
+        footer {
+            background-color: #050506;
+            border-top: 4px double var(--imperial-gold);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        footer p {
+            font-family: 'Cinzel', serif;
+            color: var(--imperial-gold);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            letter-spacing: 4px;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero-content {
+                padding: 40px 20px;
+                outline-offset: -10px;
+            }
+            .doctrina-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .doctrina-img {
+                height: 300px;
+                grid-row: 1;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="decorative-title">Un solo Señor.<br>Un solo Imperio.<br>Un futuro para todos.</h1>
+            <p>Skyrim ha permanecido despoblada por ochocientos años tras la justa caída de la codicia noble. El Nuevo Imperio se alza en Soledad para dictar el orden indestructible, la seguridad perpetua y la unión sagrada. Dobgad la rodilla ante el mañana o sed consumidos por el caos del ayer.</p>
+            <a href="https://discord.gg/tfgrHFaHy" target="_blank" class="btn-imperial">Jurar Lealtad al Imperio</a>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <section class="doctrina container">
+        <div class="doctrina-grid">
+            <div class="doctrina-text">
+                <h2>¿Por qué luchamos?</h2>
+                <p class="drop-cap">Esta sacra tierra fue purgada por designio divino ante la deshonra de los antiguos reyezuelos. Permitir que voluntades mezquinas parcelen el suelo y levanten feudos locales es reabrir las heridas del pasado. La soberanía de Skyrim exige un mando único y absoluto: un solo Imperio, un solo Emperador. Cyrodiil duerme en su burocracia; Soledad reclama vuestro acero hoy.</p>
+            </div>
+            <div class="doctrina-img" aria-label="Estatua imperial de piedra"></div>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <section class="pilares">
+        <div class="container">
+            <h2 class="section-title">Los Pilares del Imperio</h2>
+            <p class="section-subtitle">Los dogmas inquebrantables de nuestro estandarte</p>
+            
+            <div class="pilares-grid">
+                <div class="pilar-card">
+                    <h3>Unidad</h3>
+                    <p>Sepultad las viejas disputas de linaje. Bajo el águila imperial, toda sangre es una sola fuerza.</p>
+                </div>
+                <div class="pilar-card">
+                    <h3>Seguridad</h3>
+                    <p>El Imperio es ley. Garantizamos la salvaguarda absoluta de vuestro hogar bajo castigo marcial.</p>
+                </div>
+                <div class="pilar-card">
+                    <h3>Honor</h3>
+                    <p>Servir en la Sagrada Legión no es un oficio, es la máxima gracia a la que un hombre puede aspirar.</p>
+                </div>
+                <div class="pilar-card">
+                    <h3>Prosperidad</h3>
+                    <p>El control riguroso de las rutas de Soledad asegura el sustento y el florecimiento del colono fiel.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <section class="edictos container">
+        <h2 class="section-title">Edictos Imperiales de Obligado Cumplimiento</h2>
+        <p class="section-subtitle">Toda alma en el territorio de Soledad queda supeditada a la Lex de la Tierra Limpia. La ignorancia no es salvoconducto para la clemencia.</p>
+        
+        <div class="edictos-grid">
+            <div class="edicto-card">
+                <img src="https://i.pinimg.com/736x/ef/a9/29/efa9297b77e364d2fdcfdbfd29d52b5a.jpg" alt="Pergamino antiguo" class="edicto-img">
+                <div class="edicto-content">
+                    <h3>I. Decreto de Propiedad Colectiva</h3>
+                    <p>Queda estrictamente prohibido amurallar, delimitar o proclamar heredad por iniciativa privada en toda la provincia. El suelo y sus riquezas minerales pertenecen por derecho de conquista al trono imperial. Su uso será asignado por el Consejo según la necesidad del Estado.</p>
+                </div>
+            </div>
+            <div class="edicto-card">
+                <img src="https://i.pinimg.com/736x/04/68/cc/0468cc601da6264df6575ee85fbe692a.jpg" alt="Armadura imperial oscura" class="edicto-img">
+                <div class="edicto-content">
+                    <h3>II. Restricción de Armas y Artes Oscuras</h3>
+                    <p>Ningún colono ajeno a la Legión Imperial osará portar hojas largas o acero pesado dentro del poyo de Soledad. Asimismo, la práctica de liturgias heterodoxas, nigromancia o conjuración se pagará de forma sumarísima con la pena de muerte.</p>
+                </div>
+            </div>
+            <div class="edicto-card">
+                <img src="https://i.pinimg.com/1200x/f6/b9/26/f6b926f261c8949d6bfd07e8004c7268.jpg" alt="Puerto medieval oscuro" class="edicto-img">
+                <div class="edicto-content">
+                    <h3>III. Tributo de Frontera y Reconstrucción</h3>
+                    <p>Todo aquel que busque refugio tras nuestros muros y transite por calzadas custodiadas, diezmará el cinco por ciento de sus bienes o materias primas al erario imperial. Es el precio del orden; es el coste de la civilización.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Sacro Imperio - El Bastión de Soledad</p>
+        <a href="https://discord.gg/tfgrHFaHy" target="_blank" class="btn-imperial">Alistarse en la Legión</a>
+    </footer>
+
+</body>
+</html>
